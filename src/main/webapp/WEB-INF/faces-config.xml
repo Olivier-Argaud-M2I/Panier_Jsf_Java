@@ -15,13 +15,23 @@
             <redirect />
         </navigation-case>
 
-
         <navigation-case>
             <from-outcome>page1</from-outcome>
             <to-view-id>/pages/page1.xhtml</to-view-id>
             <redirect />
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>magasin</from-outcome>
+            <to-view-id>/pages/magasin.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>panier</from-outcome>
+            <to-view-id>/pages/panier.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
 
 
     </navigation-rule>
