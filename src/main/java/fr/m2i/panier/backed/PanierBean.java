@@ -1,4 +1,4 @@
-package fr.m2i.panier.backend;
+package fr.m2i.panier.backed;
 
 import fr.m2i.panier.model.Article;
 import jakarta.annotation.PostConstruct;

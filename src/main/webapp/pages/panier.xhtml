@@ -27,10 +27,17 @@
                 #{article.prix}€
                 <f:facet name="header">Prix total</f:facet>
                 #{article.quantite*article.prix}€
+                <f:facet name="header">Diminuer quantité totale</f:facet>
+                <h:form>
+                    <h:commandButton action="#{panierBean.removeArticle(article)}" value="Retirer du panier"/>
+                </h:form>
             </h:column>
 
         </h:dataTable>
 
+        <h:form>
+            <h:commandButton action="#{panierBean.emptyArticle()}" value="Vider le panier"/>
+        </h:form>
 
         <h:outputText value="#{panierBean.prixTotal()}€"/>
 

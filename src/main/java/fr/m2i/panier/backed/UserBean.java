@@ -1,4 +1,4 @@
-package fr.m2i.panier.backend;
+package fr.m2i.panier.backed;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.SessionScoped;

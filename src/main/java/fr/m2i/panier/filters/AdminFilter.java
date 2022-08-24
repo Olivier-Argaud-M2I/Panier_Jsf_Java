@@ -1,6 +1,6 @@
 package fr.m2i.panier.filters;
 
-import fr.m2i.panier.backend.UserBean;
+import fr.m2i.panier.backed.UserBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;

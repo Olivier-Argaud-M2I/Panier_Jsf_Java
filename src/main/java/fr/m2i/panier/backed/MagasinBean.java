@@ -1,4 +1,4 @@
-package fr.m2i.panier.backend;
+package fr.m2i.panier.backed;
 
 import fr.m2i.panier.model.Article;
 import jakarta.annotation.PostConstruct;
@@ -7,7 +7,6 @@ import jakarta.inject.Named;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
