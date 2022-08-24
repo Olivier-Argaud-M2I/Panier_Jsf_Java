@@ -16,12 +16,17 @@
 
     <ui:define name="main">
 
+        <h1>coucou</h1>
+        <h1>#{bundle.choice} </h1>
+
         <h:dataTable value="#{panierBean.liste}" var="article">
 
             <h:column >
                 <f:facet name="header">Article</f:facet>
                 #{article.nom}
-                <f:facet name="header">Quatite</f:facet>
+                <f:facet name="header">Description</f:facet>
+                #{article.description}
+                <f:facet name="header">Quantite</f:facet>
                 #{article.quantite}
                 <f:facet name="header">Prix</f:facet>
                 #{article.prix}€
@@ -34,6 +39,8 @@
             </h:column>
 
         </h:dataTable>
+
+        <h:outputText value="#{panierBean.prixTotal()}€"/>
 
         <h:form>
             <h:commandButton action="#{panierBean.emptyArticle()}" value="Vider le panier"/>

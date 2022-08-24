@@ -55,6 +55,21 @@ public class PanierBean implements Serializable
 		}
 	}
 
+	public void removeArticle(Article article){
+		for (Article art:liste) {
+			if(art.getNom().equals(article.getNom())){
+				art.setQuantite(art.getQuantite()-1);
+			}
+		}
+		if(article.getQuantite()<1){
+			liste.remove(article);
+		}
+	}
+
+	public void emptyArticle(){
+		this.liste = new ArrayList<>();
+	}
+
 	public Double prixTotal(){
 		Double total =0d;
 		for (Article article:liste) {

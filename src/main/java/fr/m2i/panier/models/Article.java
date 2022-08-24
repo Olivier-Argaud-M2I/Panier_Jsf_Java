@@ -30,6 +30,13 @@ public class Article implements Serializable
 		this.quantite = quantite;
 	}
 
+	public Article(String nom, String description, Double prix, Integer quantite) {
+		this.nom = nom;
+		this.description = description;
+		this.prix = prix;
+		this.quantite = quantite;
+	}
+
 	public String getNom() {
 		return nom.toUpperCase();
 	}
