@@ -1,6 +1,7 @@
 package fr.m2i.panier.backed;
 
-import fr.m2i.panier.model.Article;
+//import fr.m2i.panier.cruds.ArticleCrud;
+import fr.m2i.panier.models.Article;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
@@ -26,6 +27,9 @@ public class MagasinBean implements Serializable
 	@PostConstruct
 	public void init(){
 		nom= "Magasin";
+
+//		ArticleCrud articleCrud = new ArticleCrud();
+//		stock = articleCrud.getArticles();
 		stock = new ArrayList();
 		stock.add(new Article("pomme",1d,1));
 		stock.add(new Article("poire",1.5d,1));

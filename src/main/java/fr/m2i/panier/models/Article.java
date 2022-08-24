@@ -1,4 +1,4 @@
-package fr.m2i.panier.model;
+package fr.m2i.panier.models;
 
 
 import java.io.Serializable;
@@ -12,6 +12,7 @@ public class Article implements Serializable
 
 
 	private String nom;
+	private String description;
 	private Double prix;
 	private Integer quantite;
 
@@ -50,5 +51,13 @@ public class Article implements Serializable
 
 	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

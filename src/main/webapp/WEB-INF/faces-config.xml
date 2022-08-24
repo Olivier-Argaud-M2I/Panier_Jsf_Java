@@ -36,6 +36,14 @@
 
     </navigation-rule>
 
+    <application>
+        <locale-config>
+            <default-locale>fr</default-locale>
+            <supported-locale>fr</supported-locale>
+            <supported-locale>en</supported-locale>
+            <supported-locale>es</supported-locale>
+        </locale-config>
+    </application>
 
 
 </faces-config>
