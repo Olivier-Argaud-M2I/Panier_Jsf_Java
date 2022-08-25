@@ -1,11 +1,12 @@
 package fr.m2i.panier.backed;
 
-//import fr.m2i.panier.cruds.ArticleCrud;
+import fr.m2i.panier.cruds.ArticleCrud;
 import fr.m2i.panier.models.Article;
-import jakarta.annotation.PostConstruct;
-import jakarta.enterprise.context.SessionScoped;
-import jakarta.inject.Named;
 
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,15 +29,15 @@ public class MagasinBean implements Serializable
 	public void init(){
 		nom= "Magasin";
 
-//		ArticleCrud articleCrud = new ArticleCrud();
-//		stock = articleCrud.getArticles();
+		ArticleCrud articleCrud = new ArticleCrud();
+		stock = articleCrud.getArticles();
 		stock = new ArrayList();
-		stock.add(new Article("pomme",1d,1));
-		stock.add(new Article("poire",1.5d,1));
-		stock.add(new Article("banane",2.5d,1));
-		stock.add(new Article("prune",3.5d,1));
-		stock.add(new Article("fraise",3d,1));
-		stock.add(new Article("kiwi",0.5d,1));
+//		stock.add(new Article("pomme",1d,1));
+//		stock.add(new Article("poire",1.5d,1));
+//		stock.add(new Article("banane",2.5d,1));
+//		stock.add(new Article("prune",3.5d,1));
+//		stock.add(new Article("fraise",3d,1));
+//		stock.add(new Article("kiwi",0.5d,1));
 	}
 
 	public String getNom() {

@@ -8,7 +8,8 @@
     <display-name>panier</display-name>
 
     <context-param>
-        <param-name>jakarta.faces.DEFAULT_SUFFIX</param-name>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+<!--        <param-name>jakarta.faces.DEFAULT_SUFFIX</param-name>-->
         <param-value>*.xhtml</param-value>
     </context-param>
 
@@ -24,8 +25,30 @@
 
     <!-- Pour rendre les commentaire actif dans JSP> -->
     <context-param>
-        <param-name>facelets.SKIP_COMMENTS</param-name>
+
+        <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+<!--        <param-name>facelets.SKIP_COMMENTS</param-name>-->
         <param-value>true</param-value>
     </context-param>
+
+
+<!--    <servlet>-->
+<!--        <servlet-name>Jersey Web app</servlet-name>-->
+<!--        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>-->
+<!--        <init-param>-->
+<!--            <param-name>jersey.config.server.provider.packages</param-name>-->
+<!--            <param-value>fr.m2i.panier.resources</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--            <param-name>jersey.config.server.provider.scanning.recursive</param-name>-->
+<!--            <param-value>true</param-value>-->
+<!--        </init-param>-->
+<!--        <load-on-startup>1</load-on-startup>-->
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Jersey Web app</servlet-name>-->
+<!--        <url-pattern>/api/*</url-pattern>-->
+<!--    </servlet-mapping>-->
 
 </web-app>

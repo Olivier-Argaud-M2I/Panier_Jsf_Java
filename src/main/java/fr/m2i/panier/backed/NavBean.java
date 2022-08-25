@@ -1,11 +1,11 @@
 package fr.m2i.panier.backed;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.faces.annotation.ManagedProperty;
-import jakarta.inject.Inject;
-import jakarta.inject.Named;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.annotation.ManagedProperty;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import java.io.Serializable;
 

@@ -1,8 +1,8 @@
 package fr.m2i.panier.backed;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.enterprise.context.SessionScoped;
-import jakarta.inject.Named;
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,19 +1,31 @@
 package fr.m2i.panier.models;
 
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 
-
+@Entity
+@Table(name = "article")
+@NamedNativeQueries({
+		@NamedNativeQuery(name = "selectAllArticle",query = "SELECT article FROM Article article")
+})
 public class Article implements Serializable
 {
-	
-	private static final long serialVersionUID = 1L;
-
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	@Basic
+	@Column(name = "nom")
 	private String nom;
+	@Basic
+	@Column(name = "description")
 	private String description;
+	@Basic
+	@Column(name = "prix")
 	private Double prix;
+	@Basic
+	@Column(name = "quantity")
 	private Integer quantite;
 
 	public Article() {
@@ -67,4 +79,7 @@ public class Article implements Serializable
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 }
+
+
