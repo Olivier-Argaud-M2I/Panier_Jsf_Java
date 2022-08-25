@@ -16,24 +16,28 @@
     <ui:define name="main">
 
 
+        <h:form>
+            <h:dataTable value="#{magasinBean.stock}" var="ligne">
 
-        <h:dataTable value="#{magasinBean.stock}" var="article">
+                <h:column >
+                    <f:facet name="header">Article</f:facet>
+                    #{ligne.article.nom}
 
-            <h:column >
-                <f:facet name="header">Article</f:facet>
-                #{article.nom}
-                <f:facet name="header">Description</f:facet>
-                #{article.description}
-                <f:facet name="header">Prix</f:facet>
-                #{article.prix}€
-                <f:facet name="header">Ajouter</f:facet>
-                <h:form>
-                    <h:commandButton action="#{panierBean.addArticle(article)}" value="Ajouter au panier"/>
-                </h:form>
-            </h:column>
+                    <f:facet name="header">Description</f:facet>
+                    #{ligne.article.description}
 
-        </h:dataTable>
+                    <f:facet name="header">Prix</f:facet>
+                    #{ligne.article.prix}€
 
+                    <f:facet name="quantity">Quantité</f:facet>
+                    <h:inputText value="#{ligne.quantity}"/>
+
+                    <f:facet name="header">Ajouter</f:facet>
+                    <h:commandButton class="btn btn-outline-primary" action="#{panierBean.addLigne(ligne)}" value="#{bundle.add}"/>
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
     </ui:define>
 
 

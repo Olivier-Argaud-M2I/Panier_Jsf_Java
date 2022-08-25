@@ -1,6 +1,7 @@
 package fr.m2i.panier.backed;
 
 import fr.m2i.panier.models.Article;
+import fr.m2i.panier.models.LigneDeCommande;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
@@ -20,8 +21,8 @@ public class PanierBean implements Serializable
 
 
 	private String nom;
-
-	private List<Article> liste;
+	private Integer quantity = 1;
+	private List<LigneDeCommande> liste;
 
 	@PostConstruct
 	public void init(){
@@ -36,46 +37,62 @@ public class PanierBean implements Serializable
 		this.nom = nom;
 	}
 
-	public List<Article> getListe() {
+	public List<LigneDeCommande> getListe() {
 		return liste;
 	}
 
-	public void setListe(List<Article> liste) {
+	public void setListe(List<LigneDeCommande> liste) {
 		this.liste = liste;
 	}
 
-	public void addArticle(Article article){
-		for (Article art:liste) {
-			if(art.getNom().equals(article.getNom())){
-				art.setQuantite(art.getQuantite()+1);
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public void addLigne(LigneDeCommande ligneMag){
+		boolean test = false;
+		for (LigneDeCommande ligneDeCommande:liste) {
+			if(ligneDeCommande.getArticle().getNom().equals(ligneMag.getArticle().getNom())){
+				ligneDeCommande.setQuantity(ligneMag.getQuantity()+ligneDeCommande.getQuantity());
+				test = true;
+				break;
 			}
 		}
-		if(!liste.contains(article)){
-			liste.add(article);
+		if(!test){
+			liste.add(new LigneDeCommande(ligneMag.getArticle(), ligneMag.getQuantity()));
+		}
+
+	}
+
+	public void removeLigneDeCommande(LigneDeCommande ligneDeCommande){
+		liste.remove(ligneDeCommande);
+	}
+
+	public void minusLigneDeCommande(LigneDeCommande ligneDeCommande){
+		ligneDeCommande.setQuantity(ligneDeCommande.getQuantity()-1);
+		if(ligneDeCommande.getQuantity()<1){
+			liste.remove(ligneDeCommande);
 		}
 	}
 
-	public void removeArticle(Article article){
-		for (Article art:liste) {
-			if(art.getNom().equals(article.getNom())){
-				art.setQuantite(art.getQuantite()-1);
-			}
-		}
-		if(article.getQuantite()<1){
-			liste.remove(article);
-		}
+	public void plusLigneDeCommande(LigneDeCommande ligneDeCommande){
+		ligneDeCommande.setQuantity(ligneDeCommande.getQuantity()+1);
 	}
 
-	public void emptyArticle(){
+	public void emptyCart(){
 		this.liste = new ArrayList<>();
 	}
 
 	public Double prixTotal(){
 		Double total =0d;
-		for (Article article:liste) {
-			total += article.getPrix()* article.getQuantite();
+		for (LigneDeCommande ligneDeCommande:liste) {
+			total += ligneDeCommande.getArticle().getPrix()* ligneDeCommande.getQuantity();
 		}
-		return total;
+		return (double) Math.round(total*100)/100;
 	}
 
 

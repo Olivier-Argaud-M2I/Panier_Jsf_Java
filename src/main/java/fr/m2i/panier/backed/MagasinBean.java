@@ -2,6 +2,7 @@ package fr.m2i.panier.backed;
 
 //import fr.m2i.panier.cruds.ArticleCrud;
 import fr.m2i.panier.models.Article;
+import fr.m2i.panier.models.LigneDeCommande;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
@@ -22,7 +23,7 @@ public class MagasinBean implements Serializable
 
 	private String nom;
 
-	private List<Article> stock;
+	private List<LigneDeCommande> stock;
 
 	@PostConstruct
 	public void init(){
@@ -31,12 +32,12 @@ public class MagasinBean implements Serializable
 //		ArticleCrud articleCrud = new ArticleCrud();
 //		stock = articleCrud.getArticles();
 		stock = new ArrayList();
-		stock.add(new Article("pomme",1d,1));
-		stock.add(new Article("poire",1.5d,1));
-		stock.add(new Article("banane",2.5d,1));
-		stock.add(new Article("prune",3.5d,1));
-		stock.add(new Article("fraise",3d,1));
-		stock.add(new Article("kiwi",0.5d,1));
+		stock.add(new LigneDeCommande(new Article("Pomme","Golden",0.99d),1));
+		stock.add(new LigneDeCommande(new Article("kaki","kaki passion",0.49d),1));
+		stock.add(new LigneDeCommande(new Article("banane","banane de madagascar",0.39d),1));
+		stock.add(new LigneDeCommande(new Article("prune","reine claude",0.19d),1));
+		stock.add(new LigneDeCommande(new Article("fraise","fraise origine espagne",0.29d),1));
+		stock.add(new LigneDeCommande(new Article("kiwi","Kiwi jaune",0.29d),1));
 	}
 
 	public String getNom() {
@@ -46,11 +47,11 @@ public class MagasinBean implements Serializable
 		this.nom = nom;
 	}
 
-	public List<Article> getStock() {
+	public List<LigneDeCommande> getStock() {
 		return stock;
 	}
 
-	public void setStock(List<Article> stock) {
+	public void setStock(List<LigneDeCommande> stock) {
 		this.stock = stock;
 	}
 }

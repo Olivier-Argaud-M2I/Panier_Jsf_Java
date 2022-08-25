@@ -14,7 +14,6 @@ public class Article implements Serializable
 	private String nom;
 	private String description;
 	private Double prix;
-	private Integer quantite;
 
 	public Article() {
 	}
@@ -24,17 +23,11 @@ public class Article implements Serializable
 		this.prix = prix;
 	}
 
-	public Article(String nom, Double prix, Integer quantite) {
-		this.nom = nom;
-		this.prix = prix;
-		this.quantite = quantite;
-	}
 
-	public Article(String nom, String description, Double prix, Integer quantite) {
+	public Article(String nom, String description, Double prix) {
 		this.nom = nom;
 		this.description = description;
 		this.prix = prix;
-		this.quantite = quantite;
 	}
 
 	public String getNom() {
@@ -52,14 +45,6 @@ public class Article implements Serializable
 		this.prix = prix;
 	}
 
-	public Integer getQuantite() {
-		return quantite;
-	}
-
-	public void setQuantite(Integer quantite) {
-		this.quantite = quantite;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -67,4 +52,8 @@ public class Article implements Serializable
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+
+
+
 }

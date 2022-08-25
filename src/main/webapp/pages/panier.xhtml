@@ -9,36 +9,47 @@
 
 
     <ui:define name="titre">
-        Mon Panier
+        #{bundle.cart}
     </ui:define>
 
 
 
     <ui:define name="main">
 
-        <h1>coucou</h1>
-        <h1>#{bundle.choice} </h1>
 
-        <h:dataTable value="#{panierBean.liste}" var="article">
+        <h:form>
+            <h:dataTable class="table" value="#{panierBean.liste}" var="ligneDeCommande">
 
-            <h:column >
-                <f:facet name="header">Article</f:facet>
-                #{article.nom}
-                <f:facet name="header">Description</f:facet>
-                #{article.description}
-                <f:facet name="header">Quantite</f:facet>
-                #{article.quantite}
-                <f:facet name="header">Prix</f:facet>
-                #{article.prix}€
-                <f:facet name="header">Prix total</f:facet>
-                #{article.quantite*article.prix}€
-                <f:facet name="header">Diminuer quantité totale</f:facet>
-                <h:form>
-                    <h:commandButton action="#{panierBean.removeArticle(article)}" value="Retirer du panier"/>
-                </h:form>
-            </h:column>
+                <h:column scope="row">
 
-        </h:dataTable>
+                    <f:facet scope="col" class="md-1" name="header">Article</f:facet>
+                    #{ligneDeCommande.article.nom}
+
+                    <f:facet scope="col" class="md-1" name="header">Description</f:facet>
+                    #{ligneDeCommande.article.description}
+
+                    <f:facet scope="col" class="md-1" name="header">Prix unitaire</f:facet>
+                    #{ligneDeCommande.article.prix}€
+
+                    <f:facet scope="col" class="md-1" name="header">Prix total</f:facet>
+                    #{ligneDeCommande.total(ligneDeCommande)}€
+
+                    <f:facet scope="col" class="md-1" name="header">Diminuer quantité</f:facet>
+                    <h:commandButton class="btn btn-outline-danger" action="#{panierBean.minusLigneDeCommande(ligneDeCommande)}" value="- 1"/>
+
+                    <f:facet scope="col" class="md-1" name="quantity">Quantité</f:facet>
+                    <h:inputText value="#{ligneDeCommande.quantity}"></h:inputText>
+
+                    <f:facet scope="col" class="md-1" name="header">Augmenter quantité</f:facet>
+                    <h:commandButton class="btn btn-outline-danger" action="#{panierBean.plusLigneDeCommande(ligneDeCommande)}" value="+ 1"/>
+
+                    <f:facet scope="col" class="md-1" name="header">Retirer article</f:facet>
+                    <h:commandButton class="btn btn-outline-danger" action="#{panierBean.removeLigneDeCommande(ligneDeCommande)}" value="#{bundle.remove}"/>
+
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
 
         <h:outputText value="#{panierBean.prixTotal()}€"/>
 
